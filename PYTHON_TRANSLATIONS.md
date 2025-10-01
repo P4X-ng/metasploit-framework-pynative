@@ -247,6 +247,51 @@ python3 scripts/meterpreter/uploadexec.py -e payload.exe
 python3 scripts/meterpreter/uploadexec.py -e script.bat -p C:\\temp -v -r
 ```
 
+### 19. scripts/shell/migrate.rb → scripts/shell/migrate.py
+**Purpose:** Display message that migration is not supported for CommandShell sessions
+
+**Key Features:**
+- Simple error message for command shell sessions
+
+**Usage:**
+```bash
+python3 scripts/shell/migrate.py
+# Output: [-] Error: command shell sessions do not support migration
+```
+
+### 20. scripts/meterpreter/get_application_list.rb → scripts/meterpreter/get_application_list.py
+**Purpose:** List installed applications and their versions
+
+**Key Features:**
+- Enumerate installed applications from Windows registry
+- Query both HKLM and HKCU Uninstall keys
+- Multi-threaded registry queries for performance
+- Formatted table output
+
+**Usage:**
+```bash
+python3 scripts/meterpreter/get_application_list.py
+```
+
+### 21. scripts/meterpreter/file_collector.rb → scripts/meterpreter/file_collector.py
+**Purpose:** Search and collect files matching specific patterns
+
+**Key Features:**
+- Search for files by pattern/wildcard
+- Support for multiple search patterns (pipe-separated)
+- Recursive directory search
+- Save search results to file
+- Download files from results list
+
+**Usage:**
+```bash
+# Search for files
+python3 scripts/meterpreter/file_collector.py -d C:\\Users -f "*.doc|*.pdf" -r -o results.txt
+
+# Download files from list
+python3 scripts/meterpreter/file_collector.py -i results.txt -l ./downloads
+```
+
 ## Translation Notes
 
 ### Common Patterns
