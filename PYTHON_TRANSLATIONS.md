@@ -130,6 +130,7 @@ objdump -dM suffix <file> | python3 external/source/unixasm/objdumptoc.py
 python3 scripts/meterpreter/winenum.py --help
 ```
 
+
 ### 12. lib/msf/util/helper.rb → lib/msf/util/helper.py
 **Purpose:** Cross-platform utility functions
 
@@ -290,9 +291,6 @@ python3 scripts/meterpreter/file_collector.py -d C:\\Users -f "*.doc|*.pdf" -r -
 
 # Download files from list
 python3 scripts/meterpreter/file_collector.py -i results.txt -l ./downloads
-```
-
-## Translation Notes
 
 ### Common Patterns
 
