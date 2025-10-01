@@ -144,6 +144,74 @@ python3 scripts/meterpreter/winenum.py --help
 python3 scripts/meterpreter/autoroute.py --help
 ```
 
+### 13. scripts/meterpreter/duplicate.rb → scripts/meterpreter/duplicate.py
+**Purpose:** Spawns a new Meterpreter session in a different process.
+
+**Key Features:**
+- Injects payload into an existing or newly spawned process.
+- Can write and execute a standalone payload executable.
+- Can automatically start a handler for the new session.
+
+**Usage:**
+```bash
+python3 scripts/meterpreter/duplicate.py --help
+```
+
+### 14. scripts/meterpreter/enum_firefox.rb → scripts/meterpreter/enum_firefox.py
+**Purpose:** Extracts sensitive data from Firefox profiles.
+
+**Key Features:**
+- Enumerates profiles for all users on the system.
+- Downloads and parses SQLite databases for history, bookmarks, cookies, and downloads.
+- Downloads credential files (`key3.db`, `signons.sqlite`, etc.).
+- Can optionally kill running Firefox processes.
+
+**Usage:**
+```bash
+python3 scripts/meterpreter/enum_firefox.py --help
+```
+
+### 15. scripts/meterpreter/get_application_list.rb → scripts/meterpreter/get_application_list.py
+**Purpose:** Lists installed applications and their versions.
+
+**Key Features:**
+- Enumerates `Uninstall` keys in both HKLM and HKCU.
+- Uses threading to speed up registry queries.
+- Displays results in a formatted table.
+
+**Usage:**
+```bash
+python3 scripts/meterpreter/get_application_list.py --help
+```
+
+### 16. scripts/meterpreter/get_filezilla_creds.rb → scripts/meterpreter/get_filezilla_creds.py
+**Purpose:** Extracts saved server credentials from FileZilla.
+
+**Key Features:**
+- Finds FileZilla profiles for all users.
+- Parses `sitemanager.xml` and `recentservers.xml`.
+- Decodes Base64-encoded passwords.
+- Handles different Windows versions and privilege levels.
+
+**Usage:**
+```bash
+python3 scripts/meterpreter/get_filezilla_creds.py --help
+```
+
+### 17. scripts/meterpreter/keylogrecorder.rb → scripts/meterpreter/keylogrecorder.py
+**Purpose:** Captures and records keystrokes from the target machine.
+
+**Key Features:**
+- Can migrate into `explorer.exe` or `winlogon.exe` for stealth and privilege.
+- Periodically dumps and saves keystrokes to a log file.
+- Translates virtual key codes into readable text.
+- Can optionally lock the screen to capture login credentials.
+
+**Usage:**
+```bash
+python3 scripts/meterpreter/keylogrecorder.py --help
+```
+
 ## Translation Notes
 
 ### Common Patterns
