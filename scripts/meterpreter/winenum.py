@@ -514,9 +514,9 @@ if __name__ == "__main__":
     # This check is for when the script is run directly.
     # In a real scenario, a 'client' object would be provided by the framework.
     if 'client' not in globals():
-        print_error("This script must be run within a Meterpreter session.")
-        # You might want to initialize a mock client here for testing purposes
-        # from unittest.mock import Mock
-        # client = Mock()
+        print_status("This script is intended to run in a Meterpreter session.")
+        print_status("Initializing a mock client for testing purposes.")
+        client = MockClient()
+        main()
     else:
         main()

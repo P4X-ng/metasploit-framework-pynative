@@ -130,6 +130,20 @@ objdump -dM suffix <file> | python3 external/source/unixasm/objdumptoc.py
 python3 scripts/meterpreter/winenum.py --help
 ```
 
+### 12. scripts/meterpreter/autoroute.rb → scripts/meterpreter/autoroute.py
+**Purpose:** Manage network routes within a Meterpreter session.
+
+**Key Features:**
+- Add, delete, and list network routes.
+- Supports CIDR notation for subnets and netmasks.
+- Can delete all routes at once.
+- Provides clear, formatted output of the routing table.
+
+**Usage:**
+```bash
+python3 scripts/meterpreter/autoroute.py --help
+```
+
 ## Translation Notes
 
 ### Common Patterns
