@@ -130,6 +130,123 @@ objdump -dM suffix <file> | python3 external/source/unixasm/objdumptoc.py
 python3 scripts/meterpreter/winenum.py --help
 ```
 
+### 12. lib/msf/util/helper.rb → lib/msf/util/helper.py
+**Purpose:** Cross-platform utility functions
+
+**Key Features:**
+- `which()` function to find executables in PATH
+- Cross-platform compatibility (Windows/Unix)
+- Handles PATHEXT on Windows
+
+**Usage:**
+```python
+from lib.msf.util.helper import Helper
+
+# Find python3 executable
+python_path = Helper.which('python3')
+print(python_path)  # /usr/bin/python3
+```
+
+### 13. lib/msf/util/ruby_deserialization.rb → lib/msf/util/ruby_deserialization.py
+**Purpose:** Ruby deserialization exploit payloads
+
+**Key Features:**
+- Generate payloads for Ruby deserialization vulnerabilities
+- Supports `net_writeadapter` payload (universal gadget for Ruby 2.x-3.x)
+- Marshal format payload generation
+
+**Usage:**
+```python
+from lib.msf.util.ruby_deserialization import RubyDeserialization
+
+# Generate payload
+payload = RubyDeserialization.payload('net_writeadapter', 'whoami')
+# Returns bytes of serialized Ruby Marshal payload
+```
+
+### 14. lib/msf/util/python_deserialization.rb → lib/msf/util/python_deserialization.py
+**Purpose:** Python deserialization exploit payloads
+
+**Key Features:**
+- Generate payloads for Python deserialization vulnerabilities (pickle)
+- Supports `py3_exec` (direct execution) and `py3_exec_threaded` (threaded execution)
+- Automatic escaping of special characters
+
+**Usage:**
+```python
+from lib.msf.util.python_deserialization import PythonDeserialization
+
+# Generate payload for Python 3.x
+payload = PythonDeserialization.payload('py3_exec', 'import os; os.system("id")')
+# Returns pickle protocol string
+```
+
+### 15. lib/msf/util/java_deserialization.rb → lib/msf/util/java_deserialization.py
+**Purpose:** Java deserialization exploit payloads (ysoserial)
+
+**Key Features:**
+- Load and generate ysoserial payloads
+- Support for multiple payload types (CommonsCollections1-7, BeanShell1, etc.)
+- Dynamic command injection with automatic length correction
+- Evasion through randomization of ysoserial signatures
+
+**Usage:**
+```python
+from lib.msf.util.java_deserialization import JavaDeserialization
+
+# List available payloads
+payloads = JavaDeserialization.ysoserial_payload_names()
+
+# Generate payload
+payload = JavaDeserialization.ysoserial_payload('CommonsCollections1', 'calc.exe')
+# Returns bytes of serialized Java object
+```
+
+### 16. tools/dev/set_binary_encoding.rb → tools/dev/set_binary_encoding.py
+**Purpose:** Add UTF-8 encoding declarations to Python files
+
+**Key Features:**
+- Automatically adds `# -*- coding: utf-8 -*-` to Python files
+- Handles files with or without shebang lines
+- Skips files that already have encoding declarations
+
+**Usage:**
+```bash
+python3 tools/dev/set_binary_encoding.py myfile.py
+```
+
+### 17. scripts/meterpreter/migrate.rb → scripts/meterpreter/migrate.py
+**Purpose:** Meterpreter process migration script
+
+**Key Features:**
+- Migrate to specific PID or process name
+- Option to spawn new process (notepad.exe) for migration
+- Kill original process after migration
+- Windows platform support
+
+**Usage:**
+```bash
+python3 scripts/meterpreter/migrate.py -p 1234
+python3 scripts/meterpreter/migrate.py -n explorer.exe
+python3 scripts/meterpreter/migrate.py -f -k
+```
+
+### 18. scripts/meterpreter/uploadexec.rb → scripts/meterpreter/uploadexec.py
+**Purpose:** Upload and execute files on target system
+
+**Key Features:**
+- Upload files to target (default: %TEMP%)
+- Execute with optional arguments
+- Verbose mode to capture output
+- Optional file removal after execution
+- Optional session termination
+
+**Usage:**
+```bash
+python3 scripts/meterpreter/uploadexec.py -e payload.exe
+python3 scripts/meterpreter/uploadexec.py -e script.bat -p C:\\temp -v -r
+```
+
 ## Translation Notes
 
 ### Common Patterns
