@@ -291,8 +291,136 @@ python3 scripts/meterpreter/file_collector.py -d C:\\Users -f "*.doc|*.pdf" -r -
 
 # Download files from list
 python3 scripts/meterpreter/file_collector.py -i results.txt -l ./downloads
+```
 
-### Common Patterns
+### 22. scripts/meterpreter/virtualbox_sysenter_dos.rb → scripts/meterpreter/virtualbox_sysenter_dos.py
+**Purpose:** Trigger VirtualBox DoS vulnerability (CVE-2008-3691)
+
+**Key Features:**
+- Spawns calculator process
+- Allocates memory and writes shellcode
+- Creates thread to execute SYSENTER instruction
+- Causes VirtualBox guest to crash
+
+### 23. scripts/meterpreter/powerdump.rb → scripts/meterpreter/powerdump.py
+**Purpose:** Extract username/password hashes using PowerShell
+
+**Key Features:**
+- Uses PowerShell to dump SAM database
+- Works on Windows 7 and Server 2008+
+- Sets execution policy temporarily
+- Cleans up files after execution
+
+### 24. scripts/meterpreter/multiscript.rb → scripts/meterpreter/multiscript.py
+**Purpose:** Run multiple Meterpreter scripts sequentially
+
+**Key Features:**
+- Execute list of scripts from command line
+- Read script list from file
+- Continue on errors
+- Comment support (#)
+
+### 25. scripts/meterpreter/multi_console_command.rb → scripts/meterpreter/multi_console_command.py
+**Purpose:** Run multiple console commands on Meterpreter session
+
+**Key Features:**
+- Execute commands from command line (comma-separated)
+- Read commands from file
+- Silent mode (background execution)
+
+### 26. scripts/meterpreter/screen_unlock.rb → scripts/meterpreter/screen_unlock.py
+**Purpose:** Unlock Windows screen by patching msv1_0.dll
+
+**Key Features:**
+- Patches lsass.exe memory to bypass authentication
+- Supports Windows XP SP2/SP3, Vista, and 7
+- Can revert patch to re-enable locking
+- Requires system privileges
+
+### 27. scripts/meterpreter/search_dwld.rb → scripts/meterpreter/search_dwld.py
+**Purpose:** Recursively search and download files matching patterns
+
+**Key Features:**
+- Predefined filters (office, win9x, passwd)
+- Custom pattern support
+- Recursive directory scanning
+- Downloads to temp directory
+
+### 28. scripts/meterpreter/hostsedit.rb → scripts/meterpreter/hostsedit.py
+**Purpose:** Modify Windows hosts file for DNS redirection
+
+**Key Features:**
+- Add single or multiple host entries
+- Backup hosts file before modification
+- Clear DNS cache after changes
+- UAC detection for Vista/7
+
+### 29. scripts/meterpreter/multicommand.rb → scripts/meterpreter/multicommand.py
+**Purpose:** Execute multiple Windows commands with output capture
+
+**Key Features:**
+- Execute commands from command line or file
+- Capture and display command output
+- Optional output file
+- Response timeout configuration
+
+### 30. tools/dev/add_pr_fetch.rb → tools/dev/add_pr_fetch.py
+**Purpose:** Add pull request fetch configuration to git config
+
+**Key Features:**
+- Automatically add PR fetch refs to .git/config
+- Support for multiple remotes
+- Prevents duplicates
+
+### 31. external/source/osx/x86/src/test/write_size_and_data.rb → external/source/osx/x86/src/test/write_size_and_data.py
+**Purpose:** Write data with 4-byte size prefix (little-endian)
+
+### 32. external/source/exploits/cve-2010-4452/get_offsets.rb → external/source/exploits/cve-2010-4452/get_offsets.py
+**Purpose:** Extract config and applet offsets from compiled exploit
+
+### 33. external/source/DLLHijackAuditKit/regenerate_binaries.rb → external/source/DLLHijackAuditKit/regenerate_binaries.py
+**Purpose:** Regenerate test binaries using msfvenom
+
+**Key Features:**
+- Generate EXE and DLL payloads
+- Uses calc.exe and test payloads
+
+### 34. external/source/exploits/CVE-2018-4404/gen_offsets.rb → external/source/exploits/CVE-2018-4404/gen_offsets.py
+**Purpose:** Generate macOS library offsets for CVE-2018-4404 exploit
+
+**Key Features:**
+- Uses radare2 to extract function offsets
+- Analyzes libdyld.dylib and libsystem_c.dylib
+- Generates offsets for dyld_stub_binder, dlopen, confstr, strlen
+
+### 35. external/source/metsvc/test.rb → external/source/metsvc/test.py
+**Purpose:** Test Meterpreter connection (placeholder implementation)
+
+### 36. external/source/exploits/CVE-2016-4655/create_bin.rb → external/source/exploits/CVE-2016-4655/create_bin.py
+**Purpose:** Create flat binary from Mach-O file
+
+**Key Features:**
+- Parse Mach-O segments and sections
+- Extract code and data
+- Generate flat binary for exploit
+
+### 37. external/source/exploits/CVE-2017-13861/create_bin.rb → external/source/exploits/CVE-2017-13861/create_bin.py
+**Purpose:** Create exploit binary from Mach-O with payload dylib
+
+**Key Features:**
+- Parse Mach-O structure
+- Generate ARM branch instruction
+- Embed payload dylib at fixed offset
+
+### 38. external/source/cmdstager/debug_asm/fix_up.rb → external/source/cmdstager/debug_asm/fix_up.py
+**Purpose:** Fix up assembly based on debug.exe transcript
+
+**Key Features:**
+- Extract label addresses from debug transcript
+- Replace call/jmp references
+- Fix read/write handle/filename references
+
+## Common Patterns
 
 1. **Module Structure**: Ruby modules are translated to Python classes or module-level functions
 2. **String Encoding**: Ruby's `pack`/`unpack` is replaced with Python's `struct` module
