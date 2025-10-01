@@ -115,6 +115,21 @@ objdump -dM suffix <file> | python3 external/source/unixasm/objdumptoc.py
 - Lazy metadata loading
 - Module execution with callbacks
 
+### 11. scripts/meterpreter/winenum.rb → scripts/meterpreter/winenum.py
+**Purpose:** Comprehensive Windows local enumeration script
+
+**Key Features:**
+- Gathers system, network, and user information
+- Dumps password hashes
+- Lists security tokens
+- Detects virtual machine environments
+- Optional process migration, registry dumping, and event log clearing
+
+**Usage:**
+```bash
+python3 scripts/meterpreter/winenum.py --help
+```
+
 ## Translation Notes
 
 ### Common Patterns
